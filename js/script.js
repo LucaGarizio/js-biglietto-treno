@@ -15,38 +15,44 @@
 let risultato ="";
 
 // NOME UTENTE
-// const userName = (prompt("Inserisci il tuo nome"))
-// console.log(userName);
+const userName = (prompt("Inserisci il tuo nome"))
+// console.log("Nome Utente:", userName);
+
 
 // ETÀ UTENTE
 const userEta = parseInt(prompt ("Inserisci la tua eta"))
-console.log(userEta);
+// console.log("Eta utente:", userEta);
+
 
 // KM CHE DEVE PERCORRERE
 const userDistance = parseInt(prompt("Inserisci distanza in km"))
-console.log(userDistance);
+// console.log(userDistance);
+
 
 // PREZZO  BIGLIETTO  PER KM
 const prezzoKm = 0.21;
-console.log("prezzo per km", prezzoKm);
+// console.log("prezzo per km:", prezzoKm);
+
 
 // PREZZO BIGLIETTO IN BASE AI KM PERCORSI
-const price = userDistance * prezzoKm; 
-console.log("prezzo totale km", price);
+const totalPrice = userDistance * prezzoKm; 
+// console.log("prezzo totale km:", totalPrice);
+
 
 // PREZZO BIGLIETTO SCONTATO 20%
 if (userEta < 18) {
-    let minorenne = ((price * 20) /100);
+    let minorenne = ((totalPrice * 20) /100);
     console.log(minorenne);
-    risultato = price - minorenne;
-    console.log("sconto minorenne", parseFloat(risultato).toFixed(2));
+    risultato = totalPrice - minorenne;
+    // console.log("sconto minorenne:", parseFloat(risultato).toFixed(2));
 } else if (userEta >= 65) {
-    let maggiorenne = ((price * 40) /100);
-    risultato = price - maggiorenne;
-    console.log("sconto maggiorenne", parseFloat(risultato).toFixed(2));
+    let maggiorenne = ((totalPrice * 40) /100);
+    risultato = totalPrice - maggiorenne;
+    // console.log("sconto maggiorenne:", parseFloat(risultato).toFixed(2));
 } else {
-    risultato = price;
+    risultato = totalPrice;
+    // console.log("prezzo totale:", totalPrice);
 }
 
 // RISULTATO PREZZO BIGLIETTO IN NUMERI DECIMALI
-document.getElementById("mioBiglietto").innerHTML = `ciao il tuo biglietto costa ${parseFloat(risultato).toFixed(2)}`
+document.getElementById("mioBiglietto").innerHTML = `Ciao ${userName} il tuo biglietto costa: ${parseFloat(risultato).toFixed(2)}`;
